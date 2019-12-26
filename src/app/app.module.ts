@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { MaterialModule } from './material-module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ClipboardModule } from 'ngx-clipboard';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ClipboardModule } from 'ngx-clipboard';
     AppRoutingModule,
     MaterialModule,
     BrowserAnimationsModule,
-    ClipboardModule
+    ClipboardModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

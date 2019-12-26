@@ -1,11 +1,23 @@
 <div class="container">
   <div class="card">
     <div class="card-body">
-      <h1 [style.color]="h1color">Under Construction!</h1>
-      <p>Meanwhile.. use ssh :)</p>
+      <h1 [style.color]="h1color">SSH Console</h1>
       <div class="copy-area" matRipple (click)="copyToClipboard()">
         <code>{{textToCopy}}</code>
         <mat-icon>file_copy</mat-icon>
+      </div>
+      <hr>
+      <div class="ssh-form">
+        <mat-form-field>
+          <input matInput [(ngModel)]="hostname" placeholder="Hostname">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput [(ngModel)]="username" placeholder="Username">
+        </mat-form-field>
+        <mat-form-field>
+          <input type="password" matInput [(ngModel)]="password" placeholder="Password">
+        </mat-form-field>
+        <button mat-flat-button color="primary" (click)="redirectToShell()" [disabled]="!(hostname && username && password)">Connect</button>
       </div>
     </div>
     <a href="https://arshwaraich.com" target="_blank" rel="noopener noreferrer">

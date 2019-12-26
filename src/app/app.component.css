@@ -33,6 +33,19 @@
   font-family: 'Montserrat', sans-serif;
 }
 
+.card-body>hr {
+  border: 0px;
+  background: #eaeaea;
+  border-radius: 1000px;
+  height: 1px;
+}
+
+.card-body>.ssh-form {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0px;
+}
+
 .copy-area {
   display: flex;
   align-items: center;

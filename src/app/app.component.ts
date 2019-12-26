@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ClipboardService } from 'ngx-clipboard'
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,18 +9,26 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  textToCopy = 'ssh console.arshwaraich.com';
+  textToCopy = 'ssh [user]@console.arshwaraich.com';
   h1color: string;
   color1: string;
   color2: string;
 
+  hostname: string;
+  username: string;
+  password: string;
+
   constructor(
     private clipboardService: ClipboardService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private router: Router
   ) {
     this.color1 = '#b721ff';
     this.color2 = '#21d4fd';
     this.h1color = this.color1;
+
+    this.hostname = 'console.arshwaraich.com';
+    this.username = 'arshwaraich';
   }
 
   ngOnInit() {
@@ -45,8 +54,15 @@ export class AppComponent implements OnInit {
       'Text Copied',
       'Okay',
       {
-        duration: 20000
+        duration: 2000
       }
     );
+  }
+
+  redirectToShell(): void {
+    window.location.href = 'https://shell.arshwaraich.com' +
+    '/?hostname=' + this.hostname +
+    '&username=' + this.username + 
+    '&password=' + btoa(this.password);
   }
 }
